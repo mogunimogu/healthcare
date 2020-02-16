@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="consume" catalog="healthcare" class="pojo.Consume">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="custom_subscribe" catalog="healthcare"
+		class="pojo.CustomSubscribe">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="custom" catalog="healthcare" class="pojo.Custom">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="doctor_info" catalog="healthcare"
+		class="pojo.DoctorInfo">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="doctor_subscribe" catalog="healthcare"
+		class="pojo.DoctorSubscribe">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="goods" catalog="healthcare" class="pojo.Goods">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="goodstype" catalog="healthcare"
+		class="pojo.Goodstype">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="items" catalog="healthcare" class="pojo.Items">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="lifesign" catalog="healthcare" class="pojo.Lifesign">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="news" catalog="healthcare" class="pojo.News">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="personinfo" catalog="healthcare"
+		class="pojo.PersonInfo">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="publish" catalog="healthcare" class="pojo.Publish">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="reply" catalog="healthcare" class="pojo.Reply">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="role" catalog="healthcare" class="pojo.Role">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="sextable" catalog="healthcare" class="pojo.SexTable">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="shoppingcart" catalog="healthcare"
+		class="pojo.ShoppingCart">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+<table name="support" catalog="healthcare" class="pojo.Support">
+	<primary-key>
+		<generator class="increment"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>

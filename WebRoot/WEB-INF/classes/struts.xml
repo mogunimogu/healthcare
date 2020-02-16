@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+  <!-- 从spring容器中获取Action对象 -->
+	<constant name="struts.objectFactory" value="spring"></constant>
+
+	<package name="default" namespace="/" extends="struts-default">
+	
+	  <!--蒋忠杰的action  -->
+	    <action name="rolelist" class="releAction" method="getallrole">
+	      <result name="success">index.jsp</result>
+	   </action>
+	   
+	   <action name="loginaction" class="customAction" method="login">
+	       <result name="success">index.jsp</result>
+	   </action>
+	   <action name="deloginaction" class="customAction" method="delogin">
+	       <result name="success">index.jsp</result>
+	   </action>
+	   <action name="registeraction" class="customAction" method="register">
+	      <result name="success">index.jsp</result>
+	   </action>
+	   <action name="isbynameaction" class="customAction" method="isbyname">
+	      <result type="stream">
+	         <param name="contentType">text/html</param>
+	         <param name="inputName">inputStream</param>
+	      </result>
+	   </action>
+	   <action name="listshopaction" class="shopcartAction" method="listshop">
+	       <result name="success">shoppingchart.jsp</result>
+	   </action>
+	   
+	   <action name="addshopaction" class="shopcartAction" method="addShop">
+	       <result name="success"  type="redirectAction">goodlistaction</result>
+	   </action>
+	   
+	   <action name="goodlistaction" class="goodsAction" method="getAllGoods">
+	     <result name="success" >shopping.jsp</result>
+	   </action>
+	   
+	   <action name="additemaction" class="itemAction">
+	     <result name="success" type="redirectAction">listItemaction</result>
+	   </action>
+	   	
+	   	<action name="sellifesign" class="lifesignAction" method="getlifesignByName">
+	   	  <result name="success">personHealthinfo.jsp</result>
+	   	</action>
+	   	
+	   	<action name="listItemaction" class="itemAction" method="getAllItems">
+	   	   <result name="success">item.jsp</result>
+	   	</action>
+	   	
+	   	<action name="delshoppaction" class="itemAction" method="delshop">
+	   	   <result name="success" type="redirectAction">listshopaction</result>
+	   	</action>
+	   	<action name="dateafteraction" class="itemAction" method="dateafter">
+	   	<result name="success" >item.jsp</result>
+	   	</action>
+	   	
+	   	<action name="datediffdayaction" class="itemAction" method="datediffday">
+	   	<result name="success" >item.jsp</result>
+	   	</action>
+	   	
+	
+	  <!--袁彬的action  -->
+	   <action name="shownewstitle" class="newsAction" method="shownewstitle">
+	   		<!-- <result name="success">news_Share.jsp</result> -->
+	   		<result name="success">shownewstitle.jsp</result>
+	   </action>
+	   <action name="shownews" class="newsAction" method="shownews">
+	   		<result name="success">shownewscontent.jsp</result>
+	   </action>
+	   <action name="publish" class="publishAction" method="insertpublish">
+	   		<result name="success" type="redirectAction">showpublish</result>
+	   </action>
+	   <action name="support" class="supportAction" method="insertsupport">
+	   		<result name="success" type="redirectAction">showpublish</result>
+	   </action>
+	    <action name="supportcount" class="supportAction" method="supportcount">
+	   		<result name="success">show.jsp</result>
+	   </action>
+	   <action name="reply" class="replyAction" method="insertReply">
+	   		<result name="success" type="redirectAction">showpublish</result>
+	   </action>
+	   <action name="showpublish" class="publishAction" method="publishlist">
+	   		<result name="success">showpublish.jsp</result>
+	   </action>
+	   <action name="replylist" class="replyAction" method="Replylist">
+	   		<result name="success">show.jsp</result>
+	   </action>
+	   <action name="showAllpublish" class="publishAction" method="publishlist">
+	   		<result name="success">showAllpublish.jsp</result>
+	   </action>
+	   <action name="showreply" class="showreplyAction" method="show">
+	   		<result name="success">show.jsp</result>
+	   </action>
+	   
+	   <!--王国安的action  -->
+	  <action name="customsubscribeaction" class="customsubscribeAction" method="showcustomdoctors">
+	   	<result name="success">doctor.jsp</result>
+	   </action>
+	    <action name="doctoraction" class="doctorAction" method="showdoctorinfo">
+	      <result name="success" >doctor.jsp</result>
+	   </action>
+	   <action name="insertaction" class="customsubscribeAction" method="addcustomsubscrive">
+	   	<result name="success" type="redirectAction">customsubscribeaction</result>
+	   </action>
+	   <action name="delete" class="customsubscribeAction" method="deletesubscrive">
+	   	<result name="success" type="redirectAction">customsubscribeaction</result>
+	   	<result name="error" type="redirectAction">customsubscribeaction</result>
+	   </action>
+	  
+
+	</package>
+
+</struts>    

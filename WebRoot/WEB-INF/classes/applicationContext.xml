@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+    
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+	
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="NewsDAO" class="dao.impl.NewsDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="DoctorSubscribeDAO" class="dao.impl.DoctorSubscribeDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="PersonInfoDAO" class="dao.impl.PersonInfoDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="SexTableDAO" class="dao.impl.SexTableDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ShoppingCartDAO" class="dao.impl.ShoppingCartDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CustomDAO" class="dao.impl.CustomDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="GoodsDAO" class="dao.impl.GoodsDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ItemsDAO" class="dao.impl.ItemsDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="PublishDAO" class="dao.impl.PublishDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="SupportDAO" class="dao.impl.SupportDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="RoleDAO" class="dao.impl.RoleDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ReplyDAO" class="dao.impl.ReplyDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ConsumeDAO" class="dao.impl.ConsumeDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CustomSubscribeDAO" class="dao.impl.CustomSubscribeDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="DoctorInfoDAO" class="dao.impl.DoctorInfoDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="GoodstypeDAO" class="dao.impl.GoodstypeDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="LifesignDAO" class="dao.impl.LifesignDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!--注入service接口  -->
+	<!--蒋忠杰注入service接口 -->
+	<bean id="roleservice" class="service.impl.RoleServiceImpl">
+	   <property name="roledao" ref="RoleDAO"></property>
+	</bean>
+	
+	<bean id="customservice" class="service.impl.CustomServiceImpl" >
+	  <property name="customdao" ref="CustomDAO"></property>
+	</bean>
+	
+	<bean id="goodsservice" class="service.impl.GoodsServiceImpl">
+	  <property name="gooddao" ref="GoodsDAO"></property>
+	</bean>
+	
+	<bean id="itemservice" class="service.impl.ItemServiceImpl">
+	  <property name="itemsdao" ref="ItemsDAO"></property>
+	</bean>
+	
+	<bean id="goodstypeservice" class="service.impl.GoodsTypeServiceImpl">
+	  <property name="goodstypedao" ref="GoodstypeDAO"></property>
+	</bean>
+	<bean id="shopcartservice" class="service.impl.ShoppingCartServiceImpl">
+	  <property name="shopcartdao" ref="ShoppingCartDAO"></property>
+	</bean>
+	<bean id="personinfoservice" class="service.impl.PersonInfoServiceImpl">
+	  <property name="persondao" ref="PersonInfoDAO"></property>
+	</bean>
+	<bean id="lifesignservice" class="service.impl.LifesignServiceImpl">
+	 <property name="lifesigndao" ref="LifesignDAO"></property>
+	</bean>
+	
+	<!--袁彬注入service接口 -->
+	<bean id="newsservice" class="service.impl.NewsServiceImpl">
+		<property name="newsdao" ref="NewsDAO"></property>
+	</bean>
+	<bean id="publishservice" class="service.impl.PublishServiceImpl">
+		<property name="publishdao" ref="PublishDAO"></property>
+	</bean>
+	
+	<bean id="replyservice" class="service.impl.ReplyServiceImpl">
+		<property name="replydao" ref="ReplyDAO"></property>
+	</bean>
+	
+	<bean id="supportservice" class="service.impl.SupportServiceImpl">
+		<property name="supportdao" ref="SupportDAO"></property>
+	</bean>
+	<!--王国安注入service接口 -->
+	<bean id="doctorinfoservice" class="service.impl.DoctorInfoServiveImpl">
+		<property name="doctorinfodao" ref="DoctorInfoDAO"></property>
+	</bean>
+	<bean id="customdoctorserivce" class="service.impl.CustomSubscribeSerivceImpl">
+		<property name="customsdao" ref="CustomSubscribeDAO"></property>
+	</bean>
+	
+	
+	<!--注入action  -->
+	<!--蒋忠杰注入action  -->
+	<bean id="releAction" class="action.RoleAction">
+	  <property name="roleservice" ref="roleservice"></property>
+	</bean>
+	
+	<bean id="customAction" class="action.CustomAction">
+	   <property name="customservice" ref="customservice"></property>
+	   <property name="roleservice" ref="roleservice"></property>
+	</bean>
+	
+	<bean id="goodsAction" class="action.GoodsAction">
+	  <property name="goodservice" ref="goodsservice"></property>
+	  <property name="shopcartservice" ref="shopcartservice"></property>
+	</bean>
+	
+	<bean id="shopcartAction" class="action.ShoppingCartAction">
+	<property name="shopcartservice" ref="shopcartservice"></property>
+	<property name="goodservice" ref="goodsservice"></property>
+	</bean>
+
+	
+	<bean id="lifesignAction" class="action.LifesignAction">
+	 <property name="lifesifnservice" ref="lifesignservice"></property>
+	 <property name="personService" ref="personinfoservice"></property>
+	</bean>
+	
+	<bean id="itemAction" class="action.ItemAction">
+	  <property name="itemservice" ref="itemservice"></property>
+	  <property name="shopcartService" ref="shopcartservice"></property>
+	</bean>
+	
+	<!--袁彬注入action  -->
+	<bean id="newsAction" class="action.NewsAction">
+		<property name="newsService" ref="newsservice"></property>
+	</bean>
+	<bean id="publishAction" class="action.PublishAction">
+		<property name="publishService" ref="publishservice"></property>
+	</bean>
+	<bean id="replyAction" class="action.ReplyAction">
+		<property name="replyService" ref="replyservice"></property>
+		<property name="publishService" ref="publishservice"></property>
+	</bean>
+	<bean id="supportAction" class="action.SupportAction">
+		<property name="supportservice" ref="supportservice"></property>
+		<property name="publishService" ref="publishservice"></property>
+	</bean>
+	<bean id="showreplyAction" class="action.showReplyAction">
+		<property name="publishService" ref="publishservice"></property>
+		<property name="supportService" ref="supportservice"></property>
+		<property name="replyService" ref="replyservice"></property>
+	</bean>
+	
+	<!-- 王国安注入action -->
+	<bean id="doctorAction" class="action.DoctorInfoAction">
+		<property name="doctorinfoservice" ref="doctorinfoservice"></property>
+		<property name="customdoctorserivce" ref="customdoctorserivce"></property>
+	</bean>
+	<bean id="customsubscribeAction"  class="action.CustomSubscribeAction">
+		<property name="customdoctorserivce" ref="customdoctorserivce"></property>
+		<property name="doctorinfoservice" ref="doctorinfoservice"></property>
+	</bean>
+
+	
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+	   <tx:attributes>
+			<tx:method name="*" propagation="REQUIRED"/>
+	   </tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+	<aop:pointcut expression="execution(* service.*.*(..))" id="pointcut"/>
+	   <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+	</aop:config>
+	
+</beans>
